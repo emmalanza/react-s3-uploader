@@ -1,10 +1,14 @@
-import './styles/styles.css'
+import './styles/styles.css';
+import ImageUploader from './components/ImageUploader';
 
 function App() {
 
   return (
     <>
-    <h1 className="text-3xl text-red-700 font-bold underline">Hello Reat + Tailwind</h1>
+      <div className="min-h-screen bg-gray-100 p-8">
+        <h1 className="text-2xl font-bold mb-6">Subir y Eliminar Imágenes</h1>
+        <ImageUploader />
+      </div>
     </>
   )
 }
