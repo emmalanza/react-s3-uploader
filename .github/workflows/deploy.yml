@@ -25,7 +25,15 @@ jobs:
 
       - name: Create .env file from GitHub secrets
         run: |
-          echo -e "VITE_S3_BUCKET_NAME=${{ secrets.VITE_S3_BUCKET_NAME }}\nVITE_AWS_REGION=${{ secrets.VITE_AWS_REGION }}\nVITE_AWS_ACCESS_KEY_ID=${{ secrets.VITE_AWS_ACCESS_KEY_ID }}\nVITE_AWS_SECRET_ACCESS_KEY=${{ secrets.VITE_AWS_SECRET_ACCESS_KEY }}" > .env
+             cat <<EOF > .env
+             VITE_S3_BUCKET_NAME=${{ secrets.VITE_S3_BUCKET_NAME }}
+             VITE_AWS_REGION=${{ secrets.VITE_AWS_REGION }}
+             VITE_AWS_ACCESS_KEY_ID=${{ secrets.VITE_AWS_ACCESS_KEY_ID }}
+             VITE_AWS_SECRET_ACCESS_KEY=${{ secrets.VITE_AWS_SECRET_ACCESS_KEY }}
+             EOF
+
+      - name: Check .env content
+        run: head -n 4 .env
 
       - name: Build the project
         run: npm run build
