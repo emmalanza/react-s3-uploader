@@ -1,12 +1,39 @@
-# React + Vite
+# Practica de integración con AWS S3
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es un ejercicio **para practicar** el uso de AWS S3 desde una aplicación web usando claves de acceso.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚧 Advertencia importante
 
-## Expanding the ESLint configuration
+- **Este proyecto NO está pensado para usarse en producción.**  
+- Las claves de AWS (Access Key, Secret Key, Session Token) están usadas directamente en el frontend para fines de aprendizaje, lo cual **no es seguro** y no se recomienda bajo ninguna circunstancia en aplicaciones reales.  
+- En un entorno real, la gestión de credenciales debe realizarse en un backend seguro o usando mecanismos de autenticación y autorización adecuados (ej. AWS Cognito, roles con permisos limitados, servidores proxy).  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ¿Qué hace este ejercicio?
+
+- Permite subir, ver y borrar imágenes en un bucket de AWS S3.  
+- Configura una política CORS para que la aplicación frontend pueda comunicarse con el bucket.  
+- Muestra cómo usar variables de entorno (`.env`) para configurar las credenciales.  
+
+---
+
+## Uso local y despliegue
+
+- En local, las variables de entorno se leen desde el archivo `.env`.  
+- En despliegue, las variables se configuran a través del pipeline (por ejemplo, GitHub Actions).  
+- Recuerda que las claves que uses deben tener permisos adecuados y estar activas.  
+
+---
+
+## Mejoras recomendadas para producción
+
+- Nunca exponer claves AWS directamente en el frontend.  
+- Usar roles y políticas de AWS con permisos mínimos.  
+- Implementar backend que maneje las operaciones seguras con S3.  
+- Usar autenticación para validar usuarios.  
+
+---
+
